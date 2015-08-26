@@ -1,0 +1,115 @@
+<!DOCTYPE HTML>
+<html lang="en-US" ng-app="formulario">
+  <head>
+    <meta charset="UTF-8">
+    <title>MVC en PHP</title>
+    <link rel="stylesheet" href="./css/bootstrap.min.css" />
+
+    <script type="text/javascript" src="js/libs/angular.js/angular.js"></script>
+    <script type="text/javascript" src="js/libs/jquery-1.11.1.min.js"></script>
+    <script type="text/javascript" src="js/libs/bootstrap.min.js"></script>
+    <script type="text/javascript" src="js/controller.js"></script>
+  </head>
+  <body>
+    <div class="container-fluid" >
+      <div class="row" ng-controller="formController as frmCtr">
+        <div class="col-lg-3">
+          <form role="form" ng-submit="frmCtr.enviar()">
+            <div class="form-group">
+              <label for="nombre">Nombre:</label>
+              <input type="text" ng-model="frmCtr.fDatos.nombre" name="nombre" id="nombre" class="form-control" />
+            </div>
+            <div class="form-group">
+              <label>Genero:</label>
+              <div class="radio form-group">
+                <label>
+                  <input type="radio" name="genero" ng-model="frmCtr.fDatos.genero" id="generoM" value="M">
+                  Masculino
+                </label>
+              </div>
+              <div class="radio form-group">
+                <label>
+                  <input type="radio" name="genero" ng-model="frmCtr.fDatos.genero" id="generoF" value="F">
+                  Femenino
+                </label>
+              </div>
+              <div class="radio form-group">
+                <label>
+                  <input type="radio" name="genero" ng-model="frmCtr.fDatos.genero" id="generoO" value="O">
+                  Otro
+                </label>
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="ciudad">Ciudad:</label>
+              <select class="form-control" name="ciudad" id="ciudad" ng-model="frmCtr.fDatos.ciudad">
+                <option value="Bogotá">Bogotá</option>
+                <option value="Medellin">Medellin</option>
+                <option value="Cali">Cali</option>
+                <option value="Cucuta">Cucuta</option>
+                <option value="Tolima">Tolima</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="bandas">Bandas Favoritas</label>
+              <select multiple class="form-control" name="bandas" id="bandas" ng-model="frmCtr.fDatos.bandas">
+                <option value="Iron Maiden">Iron Maiden</option>
+                <option value="Metallica">Metallica</option>
+                <option value="Manowar">Manowar</option>
+                <option value="Hammerfall">Hammerfall</option>
+                <option value="Led Zeppelin">Led Zeppelin</option>
+                <option value="Stratovarius">Stratovarius</option>
+                <option value="Therio">Therio</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="descripcion">Descripcion</label>
+              <textarea class="form-control" id="descripcion" name="descripcion" rows="3" ng-model="frmCtr.fDatos.descripcion"></textarea>
+            </div>
+            <div class="form-group">
+              <div class="checkbox">
+                <label>
+                  <input type="checkbox" value="S" name="autorizaInfo" ng-model="frmCtr.fDatos.autorizaInfo">
+                  Permite el uso de su información
+                </label>
+              </div>
+              <div class="checkbox">
+                <label>
+                  <input type="checkbox" value="S" name="recibeInfo" ng-model="frmCtr.fDatos.recibeInfo">
+                  Desea recibir información mensual
+                </label>
+              </div>
+            </div>
+            <div class="form-group">
+              <input type="submit" id="enviar" class="btn btn-danger" value="Enviar"  />
+            </div>
+          </form>
+        </div>
+        <div class="col-lg-9" ng-controller="registros">
+          <h1>Registros:</h1>
+          <table class="table table-striped table-bordered">
+            <thead>
+              <tr>
+                <th>Nombre</th>
+                <th>Genero</th>
+                <th>Ciudad</th>
+                <th>Bandas</th>
+                <th>Descripcion</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr ng-repeat="registro in registrosJson">
+                <td>{{registro.nombre}}</td>
+                <td>{{registro.genero}}</td>
+                <td>{{registro.ciudad}}</td>
+                <td>{{registro.bandas}}</td>
+                <td>{{registro.descripcion}}</td>
+              </tr>
+            </tbody>
+          </table>
+
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
