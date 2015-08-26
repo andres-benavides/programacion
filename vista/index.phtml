@@ -14,10 +14,10 @@
     <div class="container-fluid" >
       <div class="row" ng-controller="formController as frmCtr">
         <div class="col-lg-3">
-          <form role="form" ng-submit="frmCtr.enviar()">
+          <form role="form" ng-submit="frmCtr.enviar()" novalidate>
             <div class="form-group">
               <label for="nombre">Nombre:</label>
-              <input type="text" ng-model="frmCtr.fDatos.nombre" name="nombre" id="nombre" class="form-control" />
+              <input type="text" ng-model="frmCtr.fDatos.nombre" name="nombre" id="nombre" class="form-control" required />
             </div>
             <div class="form-group">
               <label>Genero:</label>
@@ -42,7 +42,7 @@
             </div>
             <div class="form-group">
               <label for="ciudad">Ciudad:</label>
-              <select class="form-control" name="ciudad" id="ciudad" ng-model="frmCtr.fDatos.ciudad">
+              <select class="form-control" name="ciudad" id="ciudad" ng-model="frmCtr.fDatos.ciudad" required>
                 <option value="Bogotá">Bogotá</option>
                 <option value="Medellin">Medellin</option>
                 <option value="Cali">Cali</option>
@@ -52,7 +52,7 @@
             </div>
             <div class="form-group">
               <label for="bandas">Bandas Favoritas</label>
-              <select multiple class="form-control" name="bandas" id="bandas" ng-model="frmCtr.fDatos.bandas">
+              <select multiple class="form-control" name="bandas" id="bandas" ng-model="frmCtr.fDatos.bandas" required>
                 <option value="Iron Maiden">Iron Maiden</option>
                 <option value="Metallica">Metallica</option>
                 <option value="Manowar">Manowar</option>
@@ -64,7 +64,7 @@
             </div>
             <div class="form-group">
               <label for="descripcion">Descripcion</label>
-              <textarea class="form-control" id="descripcion" name="descripcion" rows="3" ng-model="frmCtr.fDatos.descripcion"></textarea>
+              <textarea class="form-control" id="descripcion" name="descripcion" rows="3" ng-model="frmCtr.fDatos.descripcion" required></textarea>
             </div>
             <div class="form-group">
               <div class="checkbox">
@@ -75,7 +75,7 @@
               </div>
               <div class="checkbox">
                 <label>
-                  <input type="checkbox" value="S" name="recibeInfo" ng-model="frmCtr.fDatos.recibeInfo">
+                  <input type="checkbox" value="S" name="recibeInfo" ng-click="" ng-model="frmCtr.fDatos.recibeInfo">
                   Desea recibir información mensual
                 </label>
               </div>
@@ -85,7 +85,7 @@
             </div>
           </form>
         </div>
-        <div class="col-lg-9" ng-controller="registros">
+        <div class="col-lg-9">
           <h1>Registros:</h1>
           <table class="table table-striped table-bordered">
             <thead>
