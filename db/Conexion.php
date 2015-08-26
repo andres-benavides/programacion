@@ -17,7 +17,7 @@ class Conexion {
   private $user;
   private $password;
   
-  public static function conexionDb($dsn="mysql:host=localhost;dbname=formulariomvc", $user="root", $password="1nt3r4ct1v3") {
+  public static function conexionDb($dsn="mysql:host=localhost;dbname=formulariomvc", $user="root", $password="") {
     $opciones = array(PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES utf8',);
     $conexion = new PDO( $dsn,  $user, $password,$opciones);
     return $conexion;
